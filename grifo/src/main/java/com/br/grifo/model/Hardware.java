@@ -17,7 +17,7 @@ public class Hardware {
 
     @ManyToOne
     @JoinColumn(name = "model_id", nullable = false)
-    private Model model;// Modelo do hardware
+    private ModelHardware model;// Modelo do hardware
 
     @ManyToOne
     @JoinColumn(name = "manufacturer_id", nullable = false)
@@ -25,7 +25,7 @@ public class Hardware {
 
     @ManyToOne
     @JoinColumn(name = "type_id", nullable = false)
-    private Type type;// Tipo do hardware (ex: Laptop, Desktop, Server)
+    private TypeHardware type;// Tipo do hardware (ex: Laptop, Desktop, Server)
 
     private String macAddress;
 
@@ -53,11 +53,11 @@ public class Hardware {
         this.serialNumber = serialNumber;
     }
 
-    public Model getModel() {
+    public ModelHardware getModel() {
         return model;
     }
 
-    public void setModel(Model model) {
+    public void setModel(ModelHardware model) {
         this.model = model;
     }
 
@@ -69,11 +69,11 @@ public class Hardware {
         this.manufacturer = manufacturer;
     }
 
-    public Type getType() {
+    public TypeHardware getType() {
         return type;
     }
 
-    public void setType(Type type) {
+    public void setType(TypeHardware type) {
         this.type = type;
     }
 
