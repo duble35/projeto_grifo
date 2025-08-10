@@ -14,70 +14,99 @@ public class Hardware {
     private Long id;
 
     private String serialNumber;
-    private String model;
+
+    @ManyToOne
+    @JoinColumn(name = "model_id", nullable = false)
+    private Model model;// Modelo do hardware
+
     @ManyToOne
     @JoinColumn(name = "manufacturer_id", nullable = false)
     private Manufacturer manufacturer;
-    private String type;
+
+    @ManyToOne
+    @JoinColumn(name = "type_id", nullable = false)
+    private Type type;// Tipo do hardware (ex: Laptop, Desktop, Server)
+
     private String macAddress;
-    private String assetTag;
-    private String location;
+
+    private String assetTag;// Etiqueta de ativo do hardware
+
+    @ManyToOne
+    @JoinColumn(name = "location_id", nullable = false)
+    private Location location;// Localização do hardware (ex: Sala 101, Escritório A)
+
     private String purchaseDate;
-    
+
     public Long getId() {
         return id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getSerialNumber() {
         return serialNumber;
     }
+
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
-    public String getModel() {
+
+    public Model getModel() {
         return model;
     }
-    public void setModel(String model) {
+
+    public void setModel(Model model) {
         this.model = model;
     }
+
     public Manufacturer getManufacturer() {
         return manufacturer;
     }
+
     public void setManufacturer(Manufacturer manufacturer) {
         this.manufacturer = manufacturer;
     }
-    public String getType() {
+
+    public Type getType() {
         return type;
     }
-    public void setType(String type) {
+
+    public void setType(Type type) {
         this.type = type;
     }
+
     public String getMacAddress() {
         return macAddress;
     }
+
     public void setMacAddress(String macAddress) {
         this.macAddress = macAddress;
     }
+
     public String getAssetTag() {
         return assetTag;
     }
+
     public void setAssetTag(String assetTag) {
         this.assetTag = assetTag;
     }
-    public String getLocation() {
+
+    public Location getLocation() {
         return location;
     }
-    public void setLocation(String location) {
+
+    public void setLocation(Location location) {
         this.location = location;
     }
+
     public String getPurchaseDate() {
         return purchaseDate;
     }
+
     public void setPurchaseDate(String purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 
-    
 }
