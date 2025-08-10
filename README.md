@@ -1,2 +1,2 @@
-# projeto_grifo
+# Projeto Grifo
 Sistema de Tecnologia da Informação
