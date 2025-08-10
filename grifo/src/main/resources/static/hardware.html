@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Form</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('hardwareForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const data = {
+                    serialNumber: document.getElementById('serialNumber').value,
+                    model: document.getElementById('model').value,
+                    manufacturer: document.getElementById('manufacturer').value,
+                    type: document.getElementById('type').value,
+                    macAddress: document.getElementById('macAddress').value,
+                    assetTag: document.getElementById('assetTag').value,
+                    location: document.getElementById('location').value,
+                    purchaseDate: document.getElementById('purchaseDate').value
+                };
+                fetch('/hardware', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            alert('Hardware saved successfully!');
+                            document.getElementById('hardwareForm').reset();
+                        } else {
+                            alert('Error saving hardware. Please try again.');
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form action="/hardware" method="post" id="hardwareForm">
+        <label for="serialNumber">Número de série</label>
+        <input type="text" name="serialNumber" id="serialNumber" placeholder="Número de série" required><br>
+
+        <label for="model">Modelo</label>
+        <input type="text" name="model" id="model" placeholder="Modelo" required><br>
+
+        <label for="manufacturer">Fabricante</label>
+        <input type="text" name="manufacturer" id="manufacturer" placeholder="Fabricante" required><br>
+
+        <label for="type">Tipo</label>
+        <input type="text" name="type" id="type" placeholder="Tipo" required><br>
+
+        <label for="macAddress">Endereço MAC</label>
+        <input type="text" name="macAddress" id="macAddress" placeholder="Endereço MAC"><br>
+
+        <label for="assetTag">Patrimônio</label>
+        <input type="text" name="assetTag" id="assetTag" placeholder="Patrimônio"><br>
+
+        <label for="location">Localização</label>
+        <input type="text" name="location" id="location" placeholder="Localização"><br>
+
+        <label for="purchaseDate">Data de aquisição</label>
+        <input type="date" name="purchaseDate" id="purchaseDate" placeholder="Data de aquisição"><br>
+
+        <button type="submit">Salvar</button>
+    </form>
