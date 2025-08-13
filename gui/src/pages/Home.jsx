@@ -5,7 +5,7 @@ export default function Home(){
         <>
             <App 
             children={
-                <h1 className="text-3xl font-bold">Welcome to the Home Page</h1>
+                <h1 className="text-3xl font-bold"></h1>
             } 
             banner={"Home Page"}
             />

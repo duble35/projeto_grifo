@@ -1,8 +1,8 @@
-export default function Fieldset({legend, cildren}){
+export default function Fieldset({legend, children}) {
     return(
-        <fieldset className="border border-gray-700 shadow-lg rounded p-4 mb-4">
-            <legend className="text-lg font-semibold mb-2">{legend}</legend>
-            {cildren}
+        <fieldset className="border border-gray-700 rounded p-5 bg-white shadow-lg">
+            <legend className="font-semibold text-gray-700">{legend}</legend>
+            {children}
         </fieldset>
     );
 }
