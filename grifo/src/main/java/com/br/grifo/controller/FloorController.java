@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import com.br.grifo.model.Floor;
 import com.br.grifo.repository.FloorRepository;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/floor")
 public class FloorController {
