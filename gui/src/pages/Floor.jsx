@@ -54,9 +54,9 @@ export default function Floor() {
                                         <tbody>
                                             {floor.map(floor => (
                                                 <tr key={floor.id}>
-                                                    <td className="border-gray-500 border p-2 text-center">{floor.id}</td>
+                                                    <td className="w-30 border-gray-500 border p-2 text-center">{floor.id}</td>
                                                     <td className="border-gray-500 border p-2 ">{floor.floor}</td>
-                                                    <td className="border-gray-500 border p-2 text-center">
+                                                    <td className="w-30 border-gray-500 border p-2 text-center">
                                                         <button className="mx-1 text-white bg-green-600 hover:bg-green-700 py-1 px-2 rounded"><i className="fa fa-edit"></i></button>
                                                         <button className="mx-1 text-white bg-red-600 hover:bg-red-700 py-1 px-2 rounded"><i className="fa fa-trash"></i></button>
                                                     </td>
