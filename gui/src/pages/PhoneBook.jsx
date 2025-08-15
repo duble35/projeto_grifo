@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export default function PhoneBook() {
     const [phone, setPhone] = useState([]);
-    const [search, setSearch] = useState(""); // termo digitado
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         fetch("http://localhost:8080/phonebook")
@@ -12,7 +12,6 @@ export default function PhoneBook() {
             .catch(err => console.log(err));
     }, []);
 
-    // Filtra em tempo real (case-insensitive)
     const filteredPhones = phone.filter(p => {
         const termo = search.toLowerCase();
         return (
@@ -34,39 +33,47 @@ export default function PhoneBook() {
                                 type="text"
                                 id="search"
                                 value={search}
-                                onChange={(e) => setSearch(e.target.value)} // atualiza busca
-                                className="rounded border border-gray-700 outline-none p-2 w-full"
+                                onChange={(e) => setSearch(e.target.value)}
+                                className="
+                                    rounded 
+                                    border 
+                                    border-gray-700 
+                                    outline-none 
+                                    p-2 
+                                    w-full"
                                 placeholder="Digite para pesquisar"
                             />
                         </div>
                     </form>
 
-                    <div className="flex flex-col gap-2 mt-4">
-                        {filteredPhones.length > 0 ? (
-                            filteredPhones.map(p => (
-                                <div
-                                    key={p.id}
-                                    className="border border-gray-300 flex justify-between p-2 bg-gradient-to-t from-gray-200 to-gray-50 shadow rounded"
-                                >
-                                    <div className="flex flex-col p-2">
-                                        <span className="uppercase font-bold text-2xl">{p.location}</span>
-                                        <span><i className="fa fa-user"></i> {p.owner}</span>
-                                        <span>
-                                            <i className="fa fa-envelope"></i>{" "}
-                                            <span className="text-blue-500">{p.mail}</span>
-                                        </span>
-                                    </div>
-                                    <div className="flex items-center p-3 border-l border-gray-300">
-                                        <h1 className="text-3xl font-bold">
-                                            <i className="fa fa-phone"></i> {p.number}
-                                        </h1>
-                                    </div>
-                                </div>
-                            ))
-                        ) : (
-                            <p className="text-gray-500 italic">Nenhum resultado encontrado</p>
-                        )}
-                    </div>
+                    <table className="w-full mt-4">
+                        <thead className="bg-gray-700 text-white">
+                            <tr>
+                                <th>Setor</th>
+                                <th>Responsável</th>
+                                <th>E-Mail</th>
+                                <th>Número</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredPhones.length > 0 ? (
+                                filteredPhones.map(p => (
+                                    <tr key={p.id} className="transition duration-300 border-b border-gray-300 hover:border-gray-700 odd:bg-gray-white even:bg-gray-50 hover:bg-gray-200">
+                                        <td className="p-2"><span className="font-bold">{p.location}</span></td>
+                                        <td className="p-2">{p.owner}</td>
+                                        <td className="p-2"><span>{p.mail}</span></td>
+                                        <td className="p-2 text-center font-bold text-xl">{p.number}</td>
+                                    </tr>
+                                ))
+                            ) : (
+                                <tr>
+                                    <td colSpan="4" className="text-center text-gray-500 italic p-2">
+                                        Nenhum resultado encontrado
+                                    </td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
                 </>
             } />
         </div>
