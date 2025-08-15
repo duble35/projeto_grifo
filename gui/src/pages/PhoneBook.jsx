@@ -40,7 +40,7 @@ export default function PhoneBook() {
                                     border-gray-700 
                                     outline-none 
                                     p-2 
-                                    w-full"
+                                    w-100"
                                 placeholder="Digite para pesquisar"
                             />
                         </div>
@@ -59,8 +59,8 @@ export default function PhoneBook() {
                             {filteredPhones.length > 0 ? (
                                 filteredPhones.map(p => (
                                     <tr key={p.id} className="transition duration-300 border-b border-gray-300 hover:border-gray-700 odd:bg-gray-white even:bg-gray-50 hover:bg-gray-200">
-                                        <td className="p-2"><span className="font-bold">{p.location}</span></td>
-                                        <td className="p-2">{p.owner}</td>
+                                        <td className="p-2"><span className="font-bold uppercase">{p.location}</span></td>
+                                        <td className="p-2 uppercase">{p.owner}</td>
                                         <td className="p-2"><span>{p.mail}</span></td>
                                         <td className="p-2 text-center font-bold text-xl">{p.number}</td>
                                     </tr>
