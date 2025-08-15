@@ -1,4 +1,7 @@
 package com.br.grifo.repository;
 
-public interface PhoneBookRepository {
+import com.br.grifo.model.PhoneBook;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PhoneBookRepository extends JpaRepository<PhoneBook,Long> {
 }
