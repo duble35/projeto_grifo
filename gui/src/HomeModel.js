@@ -4,8 +4,8 @@ import Logo from "./assets/image/logo.png";
 export default function HomeModel({ title, children }) {
     return (
         <div className="text-gray-800">
-            <nav className="py-5 bg-white">
-                <div className="px-5 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
+            <nav className="py-5">
+                <div className="mx-auto lg:w-[960px] flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
                     <h1 className="text-3xl font-bold text-gray-700">
                         <img src={Logo} alt="Logo do sistema" className="h-[40px]" />
                     </h1>
