@@ -7,7 +7,7 @@ function App({ children, banner }) {
       <div className="flex min-h-screen">
         <Navbar />
         <div className="container flex-1 mx-auto min-h-screen bg-gray-300 p-4">
-          <div className="text-gray-400 text-end uppercase">{banner}</div>
+          <div className="text-gray-400 text-end uppercase font-bold">{banner}</div>
           {children}
         </div>
       </div>
