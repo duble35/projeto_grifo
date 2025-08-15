@@ -1,10 +1,13 @@
+import Footer from "./parts/Footer";
+import Logo from "./assets/image/logo.png";
+
 export default function HomeModel({ title, children }) {
     return (
         <div className="text-gray-800">
             <nav className="py-5 bg-white">
                 <div className="container mx-auto w-[960px] flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
                     <h1 className="text-3xl font-bold text-gray-700">
-                        <img src="./img/logo.png" alt="Logo do sistema" className="h-[50px]" />
+                        <img src={Logo} alt="Logo do sistema" className="h-[50px]" />
                     </h1>
                     <ul className="flex gap-4">
                         <li><a href="/" className="hover:underline">Agenda</a></li>
@@ -23,6 +26,7 @@ export default function HomeModel({ title, children }) {
                 </div>
                 {children}
             </main>
+            <Footer/>
         </div>
     );
 }
