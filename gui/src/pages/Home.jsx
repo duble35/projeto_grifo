@@ -5,7 +5,9 @@ export default function Home(){
         <>
             <App 
             children={
-                <h1 className="text-3xl font-bold"></h1>
+                <p className="italic text-gray-300">
+                    Esta página ainda está em desenvolvimento.
+                </p>
             } 
             banner={"Home Page"}
             />
